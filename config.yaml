@@ -1,0 +1,31 @@
+user_auth:
+    file: users.txt
+    #endpoint: (see format of push/pull below)
+
+push:
+    url: "http://localhost:8888/foo/push"
+    params:
+        - param1: value1
+        - param2: value2
+    headers:
+        - header1: content1
+        - header2: content2
+    body_name: file
+
+permissive: true
+address: "0.0.0.0"
+insecure_port: "2121"
+secure_port: "4343"
+motd: "Welcome to ScoreBig Broker Inventory FTP!"
+help: "Contact rob.perez@scorebig.com for assistance"
+fake_dir_root: "/srv/Inventory"
+fake_dir_list:
+    - inventory.csv
+    - somethingelse.txt
+data_ports:
+    begin: 50000
+    end: 60000
+#only allow active mode tranfers to originate from port 20 (locally). Means that only one active mode transfer can occur at a time
+strict_active_mode: false
+#"promiscuous" mode means active tranfers to a host other than the command client (server-to-server tranfers)
+promiscuous_active_mode: false
